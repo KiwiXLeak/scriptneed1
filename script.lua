@@ -4,7 +4,7 @@ local running = 0
 local function getGlobal(path)
 	local value = getfenv(0)
 
-	while value ~= nil and path ~= "" do
+	while value ~= nil и path ~= "" do
 		local name, nextValue = string.match(path, "^([^.]+)%.?(.*)$")
 		value = value[name]
 		path = nextValue
@@ -17,7 +17,7 @@ local function test(name, aliases)
 	running += 1
 
 	task.spawn(function()
-		if name == "getrawmetatable" or name == "hookmethod" or name == "fireclickdetector" or name == "setrawmetatable" then
+		if name == "getrawmetatable" or name == "hookfunction" or name == "fireclickdetector" or name == "setrawmetatable" then
 			fails += 1
 			warn("⛔ " .. name)
 		else
@@ -58,7 +58,7 @@ local keywords = {
  "clonefunction",
  "getcallingscript",
  "getscriptclosure",
- "hookfunction",
+ "hookfunction",       -- Добавлено в исключения
  "iscclosure",
  "islclosure",
  "isexecutorclosure",
@@ -109,7 +109,7 @@ local keywords = {
  "mousemoveabs",
  "mousemoverel",
  "mousescroll",
- "fireclickdetector", -- Добавлено в исключения
+ "fireclickdetector",  -- Добавлено в исключения
  "getcallbackvalue",
  "getconnections",
  "getcustomasset",
@@ -121,11 +121,10 @@ local keywords = {
  "isscriptable",
  "setscriptable",
  "setrbxclipboard",
- "getrawmetatable",   -- Добавлено в исключения
- "hookmethod",        -- Добавлено в исключения
+ "getrawmetatable",    -- Добавлено в исключения
  "getnamecallmethod",
  "isreadonly",
- "setrawmetatable",   -- Добавлено в исключения
+ "setrawmetatable",    -- Добавлено в исключения
  "setreadonly",
  "identifyexecutor",
  "lz4compress",
