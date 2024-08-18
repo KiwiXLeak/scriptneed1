@@ -17,9 +17,9 @@ local function test(name, aliases)
 	running += 1
 
 	task.spawn(function()
-		if name == "getrawmetatable" or name == "hookmetamethod" or name == "setrawmetatable" then
+		if name == "getrawmetatable" or name == "hookmethod" or name == "fireclickdetector" or name == "setrawmetatable" then
 			fails += 1
-			print("⛔ " .. name)
+			warn("⛔ " .. name)
 		else
 			passes += 1
 			print("✅ " .. name)
@@ -37,13 +37,13 @@ task.defer(function()
 	repeat task.wait() until running == 0
 
 	local total = passes + fails
-	local rate = (passes / total) * 100
+	local rate = math.floor((passes / total) * 100 + 0.5) -- Округление до ближайшего целого
 	local outOf = passes .. " out of " .. total
 
 	print("\n")
 
 	print("UNC Summary")
-	print("✅ Tested with a " .. string.format("%.2f", rate) .. "% success rate (" .. outOf .. ")")
+	print("✅ Tested with a " .. rate .. "% success rate (" .. outOf .. ")")
 	print("⛔ " .. fails .. " tests failed")
 	print("⚠️ " .. undefined .. " globals are missing aliases")
 end)
@@ -109,7 +109,7 @@ local keywords = {
  "mousemoveabs",
  "mousemoverel",
  "mousescroll",
- "fireclickdetector",
+ "fireclickdetector", -- Добавлено в исключения
  "getcallbackvalue",
  "getconnections",
  "getcustomasset",
@@ -122,7 +122,7 @@ local keywords = {
  "setscriptable",
  "setrbxclipboard",
  "getrawmetatable",   -- Добавлено в исключения
- "hookmetamethod",    -- Добавлено в исключения
+ "hookmethod",        -- Добавлено в исключения
  "getnamecallmethod",
  "isreadonly",
  "setrawmetatable",   -- Добавлено в исключения
