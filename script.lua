@@ -4,7 +4,7 @@ local running = 0
 local function getGlobal(path)
 	local value = getfenv(0)
 
-	while value ~= nil и path ~= "" do
+	while value ~= nil and path ~= "" do
 		local name, nextValue = string.match(path, "^([^.]+)%.?(.*)$")
 		value = value[name]
 		path = nextValue
