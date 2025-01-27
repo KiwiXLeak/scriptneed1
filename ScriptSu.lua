@@ -133,7 +133,7 @@ for i, v in next, everything do
         task.wait(6)
     elseif i == 7 then
         task.wait(5)
-    elseif i == 15 then
+    elseif i == 13 then
         task.wait(8)
     elseif i == 18 then
         task.wait(2)
