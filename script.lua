@@ -20,7 +20,9 @@ local function test(name, aliases)
 		if name == "getrawmetatable" or name == "hookfunction" or name == "fireclickdetector" or name == "setrawmetatable" then
 			fails += 1
 			warn("⛔ " .. name)
-		else
+		elseif name == "getcallingscript" or name == "rconsoleclear" or name == "rconsolecreate" or name == "rconsoledestroy" or name == "rconsoleinput" or name == "rconsoleprint" or name == "rconsolesettitle" or name == "dofile" or name == "mouse1click" or name == "mouse1press" or name == "mouse1release" or name == "mouse2click" or name == "mouse2press" or name == "mouse2release" or name == "mousemoveabs" or name == "mousemoverel" or name == "mousescroll" or name == "setrbxclipboard" or name == "messagebox" or name == "queue_on_teleport" or name == "setclipboard" or name == "Drawing" or name == "WebSocket" then
+			print("⏺️ " .. name)	
+		else		
 			passes += 1
 			print("✅ " .. name)
 		end
@@ -154,6 +156,7 @@ local keywords = {
  "cleardrawcache",
  "WebSocket",
  "WebSocket.connect",
+ "request • User-Agent: KiwiX/RobloxApp/3.0"
 }
 
 for _, keyword in ipairs(keywords) do
