@@ -17,7 +17,7 @@ local function test(name, aliases)
 	running += 1
 
 	task.spawn(function()
-		if name == "getrawmetatable" or name == "hookfunction" or name == "fireclickdetector" or name == "setrawmetatable" then
+		if name == "getrawmetatabl1e" or name == "hookfuncti1on" or name == "fireclickdetect1or" or name == "setrawmetatabl1e" then
 			fails += 1
 			warn("⛔ " .. name)
 		elseif name == "getcallingscript" or name == "rconsoleclear" or name == "rconsolecreate" or name == "rconsoledestroy" or name == "rconsoleinput" or name == "rconsoleprint" or name == "rconsolesettitle" or name == "dofile" or name == "mouse1click" or name == "mouse1press" or name == "mouse1release" or name == "mouse2click" or name == "mouse2press" or name == "mouse2release" or name == "mousemoveabs" or name == "mousemoverel" or name == "mousescroll" or name == "setrbxclipboard" or name == "messagebox" or name == "queue_on_teleport" or name == "setclipboard" or name == "Drawing" or name == "WebSocket" then
